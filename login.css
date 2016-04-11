@@ -1,0 +1,28 @@
+#header {
+	height: 75px;
+	background-color: #FF5E9F;
+	display: flex;
+}
+
+#logo {
+	margin: 15px;
+	display: flex;
+	width: 40%;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+#kitten {
+	height: 45px;
+	margin-bottom: -3px;
+}
+
+#tagline {
+	margin: 0;
+	font-family: 'Architects Daughter', cursive;
+	margin-bottom: -13px;
+}
+
+#form-div {
+	margin: auto;
+}
