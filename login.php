@@ -6,7 +6,7 @@
 	$password = "password";
 	$id = "1";
 
-	if ($_POST['login'] == $username && $_POST['password'] == $password) {
+	if ($_POST['login'] == "User" && $_POST['password'] == "password") {
 
 		$_SESSION['loggedin'] = 1;
 		$_SESSION['login'] = $username;
