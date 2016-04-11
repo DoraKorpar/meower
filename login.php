@@ -2,25 +2,22 @@
 
 	session_start();
 
-	if ($_POST['login']) {
+	$username = "User";
+	$password = "password";
+	$id = "1";
 
-		$username = "User";
-		$password = "password";
-		$id = "1";
+	$use_input = strip_tags($_POST['login']);
+	$pass_input = strip_tags($_POST['password']);
 
-		$use_input = strip_tags($_POST['login']);
-		$pass_input = strip_tags($_POST['password']);
+	if ($use_input == $username && $pass_input == $password) {
 
-		if ($use_input == $username && $pass_input == $password) {
+		$_SESSION['loggedin'] = 1;
+		$_SESSION['login'] = $username;
+		$_SESSION['id'] = $id;
 
-			$_SESSION['loggedin'] = 1;
-			$_SESSION['login'] = $username;
-			$_SESSION['id'] = $id;
-
-			header("Location: index.php");
-		} else {
-			echo "Invalid information";
-		}
+		header("Location: index.php");
+	} else {
+		echo "Invalid information";
 	}
 ?>
 
