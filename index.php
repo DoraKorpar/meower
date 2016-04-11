@@ -1,5 +1,10 @@
-<?php
-?>
+<!-- <?php
+	session_start();
+
+	if(isset($_SESSION['id'])) {
+		$username = $_SESSION['login']
+	}
+?> -->
 <!DOCTYPE html>
 <html>
 

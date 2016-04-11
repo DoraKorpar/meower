@@ -11,7 +11,7 @@
 		$use_input = strip_tags($_POST['login']);
 		$pass_input = strip_tags($_POST['password']);
 
-		if ($_POST['login'] == $username && $_POST['password'] == $password) {
+		if ($use_input == $username && $pass_input == $password) {
 
 			$_SESSION['loggedin'] = 1;
 			$_SESSION['login'] = $username;
