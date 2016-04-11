@@ -9,7 +9,6 @@ if(isset($_SESSION['id'])) {
 	$result = "Hello there";
 }
 ?>
-<!DOCTYPE html>
 <html>
 
 <head>
