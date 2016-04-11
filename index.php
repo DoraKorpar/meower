@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(isset($_SESSION['id'])) {
+	$id = $_SESSION['id'];
+	$name = $_SESSION['login'];
+	$result = "Hello,".$name.; 
+} else {
+	$result = "Hello there";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -32,12 +43,9 @@
 			</div>
 			<div id="menu">
 				<div id="menu-button">
-
-				<?php
-
-					session_start();
-					if($_SESSION['logged in'])
-					<div class="button-text"><a href="/index.html"></a></div>
+					<div class="button-text"><a href="/index.html">
+						<?php echo $result ?>
+					</a></div>
 					<div class="button-text"><a href="/TCA-Block2-UserPage.html">My Statuses</a></div>
 					<div class="button-text"><a href="/TCA-Block2-AllUsers.html">All Users</a></div>
 				</div>
