@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if(isset($_SESSION['id'])) {
+	$id = $_SESSION['id'];
+	$name = $_SESSION['login'];
+	$result = "Hello,".$name.; 
+} else {
+	$result = "Hello there";
+}
+?>
 <html>
 
 <head>
@@ -32,7 +42,9 @@
 			</div>
 			<div id="menu">
 				<div id="menu-button">
-					<div class="button-text"><a href="/index.html">Home</a></div>
+					<div class="button-text"><a href="/index.html">
+						<?php echo $result ?>
+					</a></div>
 					<div class="button-text"><a href="/TCA-Block2-UserPage.html">My Statuses</a></div>
 					<div class="button-text"><a href="/TCA-Block2-AllUsers.html">All Users</a></div>
 				</div>
