@@ -1,23 +1,3 @@
-<?php
-
-	session_start();
-
-	$username = "User";
-	$password = "password";
-	$id = "1";
-
-	if ($_POST['login'] == "User" && $_POST['password'] == "password") {
-
-		$_SESSION['loggedin'] = 1;
-		$_SESSION['login'] = $username;
-		$_SESSION['id'] = $id;
-
-		header("Location: index.php");
-	} else {
-		echo "Invalid information";
-	}
-?>
-
 <html>
 <head>
 	<title>Log-In Page</title>
@@ -45,8 +25,3 @@
 	</div>
 </body>
 </html>
-
-<?php
-
-
-?>

@@ -1,3 +1,25 @@
+<?php
+
+	$users = [
+    array("id" => 1, "login" => "user1", "password" => "password1", "full_name" => "User 1"),
+    array("id" => 2, "login" => "user2", "password" => "password2", "full_name" => "User 2"),
+    array("id" => 3, "login" => "user3", "password" => "password3", "full_name" => "User 3"),
+  ];
+
+	$username = $_POST['login'];
+
+	function userExists($login, $password, $users) {
+		foreach ($users as $elem) {
+			if ($login == $elem['login'] && $password == $elem['password']) {
+				return $elem;
+			}
+		}
+		return false;
+	}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -42,6 +64,28 @@
 		<div id="outerbody">
 			<!-- /////////////////////////////- Article begins ////////////////////////////////////// -->
 			<div id="article">
+				<div id="greeting">
+
+					<?php
+						if ($username == "") {
+							echo "Hello, there!</br>";
+							echo "<a class='login_link' href='/login.php'>Login</a>";
+						}
+						else if (userExists($username, $_POST['password'], $users) == false) {
+							echo "Hello, there!</br>";
+							echo "<p id='error'>Invalid credentials</p>";
+							echo "<a class='login_link' href='/login.php'>Try logging in again?</a>";
+						}
+						else {
+							echo "Hello, " . $username . "!</br>";
+							$user13 = str_rot13($username);
+							echo "Your rot13'd login is: " . $user13 . "</br>";
+							$userLength = strlen($username);
+							echo "The length of your login is: " . $userLength;
+						}
+					?>
+
+				</div>
 				<div id="post_status">
 					<i id="post-status-click" onclick="toggle_status_post()" class="material-icons rotate">add</i>
 				</div>
