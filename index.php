@@ -1,25 +1,3 @@
-<?php
-
-	$users = [
-    array("id" => 1, "login" => "user1", "password" => "password1", "full_name" => "User 1"),
-    array("id" => 2, "login" => "user2", "password" => "password2", "full_name" => "User 2"),
-    array("id" => 3, "login" => "user3", "password" => "password3", "full_name" => "User 3"),
-  ];
-
-	$username = $_POST['login'];
-
-	function userExists($login, $password, $users) {
-		foreach ($users as $elem) {
-			if ($login == $elem['login'] && $password == $elem['password']) {
-				return $elem;
-			}
-		}
-		return false;
-	}
-
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -44,6 +22,29 @@
 </head>
 
 <body id="body">
+
+	<?php
+
+		$users = [
+	    array("id" => 1, "login" => "user1", "password" => "password1", "full_name" => "User 1"),
+	    array("id" => 2, "login" => "user2", "password" => "password2", "full_name" => "User 2"),
+	    array("id" => 3, "login" => "user3", "password" => "password3", "full_name" => "User 3"),
+	  ];
+
+		$username = $_POST['login'];
+
+		function userExists($login, $password, $users) {
+			foreach ($users as $elem) {
+				if ($login == $elem['login'] && $password == $elem['password']) {
+					return $elem;
+				}
+			}
+			return false;
+		}
+
+
+	?>
+
 	<div id="everything">
 		<!-- //////////////////////////////////////////// Header beings ///////////////////////////// -->
 		<div id="behind_header"></div>
@@ -68,18 +69,18 @@
 
 					<?php
 						if ($username == "") {
-							echo "Hello, there!</br>";
+							echo "Hello, there!<br>";
 							echo "<a class='login_link' href='/login.php'>Login</a>";
 						}
 						else if (userExists($username, $_POST['password'], $users) == false) {
-							echo "Hello, there!</br>";
+							echo "Hello, there!<br>";
 							echo "<p id='error'>Invalid credentials</p>";
 							echo "<a class='login_link' href='/login.php'>Try logging in again?</a>";
 						}
 						else {
-							echo "Hello, " . $username . "!</br>";
+							echo "Hello, " . $username . "!<br>";
 							$user13 = str_rot13($username);
-							echo "Your rot13'd login is: " . $user13 . "</br>";
+							echo "Your rot13'd login is: " . $user13 . "<br>";
 							$userLength = strlen($username);
 							echo "The length of your login is: " . $userLength;
 						}
